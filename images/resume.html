@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個人履歷 - 亞洲大學學生</title>
+<style>
+  /* Reset */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; padding: 20px; }
+  .container { max-width: 800px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+  h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+  h2 { color: #34495e; margin-top: 20px; margin-bottom: 10px; border-bottom: 2px solid #e67e22; display: inline-block; padding-bottom: 3px;}
+  p { margin-bottom: 10px; }
+  ul { margin-bottom: 10px; padding-left: 20px; }
+  li { margin-bottom: 5px; }
+  .skills span { display: inline-block; background: #e67e22; color: #fff; padding: 5px 10px; border-radius: 5px; margin-right: 5px; margin-bottom: 5px;}
+  button { padding: 10px 15px; border: none; border-radius: 5px; background: #3498db; color: #fff; cursor: pointer; margin-top: 10px;}
+  button:hover { background: #2980b9; }
+  #message { margin-top: 15px; font-weight: bold; color: green; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>賴儷心</h1>
+  <p>亞洲大學 學號: 114055061</p>
+  <p>Email: d09021210@gmail.com | 電話: 0972713912</p>
+
+  <h2>自我介紹</h2>
+  <p>我是一名對建築設計與前端技術充滿熱情，喜歡將創意與實用結合，樂於挑戰各種新技術與設計專案。</p>
+
+  <h2>學歷</h2>
+  <ul>
+    <li>亞洲大學，室內設計系 (2024 - 現在)</li>
+    
+
+  <h2>技能</h2>
+  <div class="skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Git & GitHub</span>
+    <span>設計軟體</span>
+  </div>
+
+  <h2>經歷</h2>
+  <ul>
+    <li>美甲練習與作品展示 - 自學並製作個人作品集</li>
+    <li>自主學習專案 - 學習股票投資與分析</li>
+  </ul>
+
+  <h2>作品展示</h2>
+  <ul>
+    <li>個人美甲作品集</li>
+    <li>前端小專案 (HTML/CSS/JS)</li>
+    <li>設計作業與模型照片</li>
+  </ul>
+
+  <h2>互動小功能</h2>
+  <button onclick="showMessage()">點我顯示訊息</button>
+  <p id="message"></p>
+</div>
+
+<script>
+  function showMessage() {
+    const msg = document.getElementById('message');
+    msg.textContent = "你好！這是你的個人履歷頁面，祝你求職順利！";
+  }
+</script>
+</body>
+</html>
