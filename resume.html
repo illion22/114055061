@@ -67,11 +67,11 @@
     opacity: 0.8;
   }
 
-  /* 調整音樂來源的樣式 */
-  .music-source {
+  /* 音樂來源標籤樣式 */
+  .music-credit {
     font-size: 0.75rem;
     opacity: 0.5;
-    margin-top: 10px;
+    margin-top: 15px;
     font-style: italic;
   }
 
@@ -188,7 +188,7 @@
 <body>
 
 <audio id="bgm" loop>
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="music/music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="layout">
@@ -202,7 +202,7 @@
     <div class="info-p">學號：114055061</div>
     <div class="info-p">Email：contact@example.com</div>
     
-    <div class="music-source">
+    <div class="music-credit">
       <i class="fas fa-music"></i> 音樂來源：suno.ai
     </div>
     
@@ -210,6 +210,7 @@
   </div>
 
   <div class="right">
+    
     <div class="section">
       <h3 class="section-title">自我介紹</h3>
       <p class="item-desc">
@@ -263,19 +264,20 @@
       <button onclick="showMessage()">點我驚喜</button>
       <p id="message" style="margin-top: 15px; font-weight: bold; color: #003d66;"></p>
     </div>
+
   </div>
 </div>
 
 <script>
   const audio = document.getElementById("bgm");
 
-  // 當使用者點擊頁面任何地方，嘗試播放音樂
+  // 解鎖播放限制：點擊頁面任何地方即播放
   document.addEventListener('click', function() {
     audio.play().catch(e => console.log("播放被攔截:", e));
-  }, { once: true }); // once: true 確保點擊一次後就不再重複執行這段
+  }, { once: true });
 
   function showMessage() {
-    // 確保按下按鈕時也一定會啟動播放
+    // 再次確保點擊按鈕時會播放
     audio.play();
     document.getElementById("message").textContent = "✨ 履歷質感升級完成！祝你設計靈感源源不絕！";
   }
