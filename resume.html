@@ -3,161 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個人履歷</title>
-
+<title>賴儷心 - 個人履歷</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-body {
-  font-family: 'Noto Sans TC', sans-serif;
-}
+  body {
+    font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    color: #444;
+  }
 
-/* 整體左右 */
-.layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-/* 左邊深藍 20% */
-.left {
-  width: 20%;
-  background: #0d2b4c;
-  color: white;
-  padding: 30px;
-  text-align: center;
-}
-
-/* 照片 */
-.left img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid white;
-  margin-bottom: 15px;
-}
-
-/* 右邊 80% */
-.right {
-  width: 80%;
-  background: #f4f7fb;
-  padding: 40px;
-}
-
-/* 卡片 */
-.card {
-  background: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-/* 標題 */
-h2 {
-  margin-bottom: 10px;
-  color: #333;
-}
-
-/* 技能 */
-.skills span {
-  background: #4facfe;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin: 5px;
-  display: inline-block;
-  font-size: 13px;
-}
-
-/* 按鈕 */
-button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  background: #ff7a18;
-  color: white;
-  cursor: pointer;
-}
-
-/* RWD */
-@media (max-width: 768px) {
   .layout {
-    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
   }
 
-  .left, .right {
-    width: 100%;
+  /* --- 左邊側欄 (30%) --- */
+  .left {
+    width: 30%;
+    background: #003d66; /* 參考圖片的深藍色 */
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-}
+
+  .profile-box {
+    margin-bottom: 30px;
+  }
+
+  /* 參考照片的白色外框方形照片 */
+  .left img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 8px solid white;
+    margin-bottom: 25px;
+    background: #fff;
+  }
+
+  .left h2 {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+
+  .left .subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+
+  .left .info-p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+
+  .page-num {
+    margin-top: auto;
+    font-size: 14px;
+    opacity: 0.5;
+    align-self: flex-start;
+  }
+
+  /* --- 右邊主欄 (70%) --- */
+  .right {
+    width: 70%;
+    background: white;
+    padding: 60px 80px;
+  }
+
+  .section {
+    margin-bottom: 50px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    color: #666;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  /* 時間軸樣式 */
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid #ddd;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #555;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .item-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .item-org {
+    color: #666;
+    margin-left: 15px;
+  }
+
+  .item-date {
+    font-size: 0.9rem;
+    color: #888;
+  }
+
+  .item-desc {
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  /* 技能標籤 */
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-tag {
+    border: 1px solid #ddd;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  /* 按鈕 */
+  button {
+    background: #003d66;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #005a99;
+  }
+
+  /* RWD 手機版切換 */
+  @media (max-width: 768px) {
+    .layout { flex-direction: column; }
+    .left, .right { width: 100%; padding: 40px 20px; }
+  }
 </style>
 </head>
-
 <body>
 
 <div class="layout">
-
-  <!-- 左邊 -->
   <div class="left">
-    <img src="images/photo.jpg" alt="個人照片">
-
-    <h2>賴儷心</h2>
-    <p>亞洲大學 室內設計系</p>
-    <p>學號：114055061</p>
-    <p>Email</p>
+    <div class="profile-box">
+      <img src="images/photo.jpg" alt="個人照片">
+      <h2>賴 儷 心</h2>
+      <div class="subtitle">亞洲大學 室內設計系</div>
+    </div>
     
+    <div class="info-p">學號：114055061</div>
+    <div class="info-p">Email：d09021210@gmail.com</div>
+    
+    <div class="page-num">01</div>
   </div>
 
-  <!-- 右邊 -->
   <div class="right">
-
-    <div class="card">
-      <h2>自我介紹</h2>
-      <p>我是一名對建築設計與前端技術充滿熱情的學生，喜歡將創意與實用結合。</p>
+    
+    <div class="section">
+      <h3 class="section-title">自我介紹</h3>
+      <p class="item-desc">
+        我是一名對建築設計與前端技術充滿熱情的學生，喜歡將創意與實用結合。
+        致力於創造美觀且功能完善的數位與空間體驗。
+      </p>
     </div>
 
-    <div class="card">
-      <h2>技能</h2>
-      <div class="skills">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>GitHub</span>
-        <span>設計軟體</span>
+    <div class="section">
+      <h3 class="section-title">相關學歷</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">室內設計學士</span>
+              <span class="item-org">亞洲大學</span>
+            </div>
+            <span class="item-date">2025 - 現在</span>
+          </div>
+          <p class="item-desc">專注於空間美學、建築構造與前端技術整合應用。</p>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <h2>學歷</h2>
-      <p>亞洲大學 室內設計系 (2025 - 現在)</p>
+    <div class="section">
+      <h3 class="section-title">作品展示</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="item-header">
+            <span class="item-title">美甲作品 / 前端小專案</span>
+            <span class="item-date">Featured Works</span>
+          </div>
+          <p class="item-desc">結合美感設計與網頁開發，包含個人品牌視覺設計與互動式網頁專案。</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>作品展示</h2>
-      <ul>
-        <li>美甲作品</li>
-        <li>前端小專案</li>
-        <li>設計作業</li>
-      </ul>
+    <div class="section">
+      <h3 class="section-title">專業技能</h3>
+      <div class="skills-container">
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">AutoCAD / 建模軟體</span>
+        <span class="skill-tag">視覺傳達設計</span>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>互動</h2>
-      <button onclick="showMessage()">點我</button>
-      <p id="message"></p>
+    <div class="section">
+      <h3 class="section-title">互動</h3>
+      <button onclick="showMessage()">點我驚喜</button>
+      <p id="message" style="margin-top: 15px; font-weight: bold; color: #003d66;"></p>
     </div>
 
   </div>
-
 </div>
 
 <script>
 function showMessage() {
-  document.getElementById("message").textContent = "你好！你這份履歷變更強了✨";
+  document.getElementById("message").textContent = "✨ 履歷質感升級完成！祝你設計靈感源源不絕！";
 }
 </script>
 
