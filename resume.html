@@ -26,7 +26,7 @@
   /* --- 左邊側欄 (30%) --- */
   .left {
     width: 30%;
-    background: #003d66; /* 參考圖片的深藍色 */
+    background: #003d66; 
     color: white;
     padding: 60px 40px;
     display: flex;
@@ -39,7 +39,6 @@
     margin-bottom: 30px;
   }
 
-  /* 參考照片的白色外框方形照片 */
   .left img {
     width: 180px;
     height: 180px;
@@ -66,6 +65,14 @@
     font-size: 0.95rem;
     margin-bottom: 8px;
     opacity: 0.8;
+  }
+
+  /* 調整音樂來源的樣式 */
+  .music-source {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    margin-top: 10px;
+    font-style: italic;
   }
 
   .page-num {
@@ -95,7 +102,6 @@
     padding-bottom: 10px;
   }
 
-  /* 時間軸樣式 */
   .timeline {
     position: relative;
     padding-left: 30px;
@@ -146,7 +152,6 @@
     color: #666;
   }
 
-  /* 技能標籤 */
   .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -160,7 +165,6 @@
     font-size: 0.9rem;
   }
 
-  /* 按鈕 */
   button {
     background: #003d66;
     color: white;
@@ -175,7 +179,6 @@
     background: #005a99;
   }
 
-  /* RWD 手機版切換 */
   @media (max-width: 768px) {
     .layout { flex-direction: column; }
     .left, .right { width: 100%; padding: 40px 20px; }
@@ -183,6 +186,10 @@
 </style>
 </head>
 <body>
+
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="layout">
   <div class="left">
@@ -195,11 +202,14 @@
     <div class="info-p">學號：114055061</div>
     <div class="info-p">Email：contact@example.com</div>
     
+    <div class="music-source">
+      <i class="fas fa-music"></i> 音樂來源：suno.ai
+    </div>
+    
     <div class="page-num">01</div>
   </div>
 
   <div class="right">
-    
     <div class="section">
       <h3 class="section-title">自我介紹</h3>
       <p class="item-desc">
@@ -253,35 +263,22 @@
       <button onclick="showMessage()">點我驚喜</button>
       <p id="message" style="margin-top: 15px; font-weight: bold; color: #003d66;"></p>
     </div>
-
   </div>
 </div>
-<audio id="bgm" autoplay loop playsinline>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!--音樂來源 suno.ai -->
-
 
 <script>
   const audio = document.getElementById("bgm");
 
-  // 嘗試直接播放
-  audio.play().catch(() => {
-    // 若被擋，快速解除靜音再播放
-    audio.muted = true;
+  // 當使用者點擊頁面任何地方，嘗試播放音樂
+  document.addEventListener('click', function() {
+    audio.play().catch(e => console.log("播放被攔截:", e));
+  }, { once: true }); // once: true 確保點擊一次後就不再重複執行這段
+
+  function showMessage() {
+    // 確保按下按鈕時也一定會啟動播放
     audio.play();
-
-    setTimeout(() => {
-      audio.muted = false;
-    }, 100);
-  });
-</script>
-
-<script>
-function showMessage() {
-  document.getElementById("message").textContent = "✨ 履歷質感升級完成！祝你設計靈感源源不絕！";
-}
+    document.getElementById("message").textContent = "✨ 履歷質感升級完成！祝你設計靈感源源不絕！";
+  }
 </script>
 
 </body>
