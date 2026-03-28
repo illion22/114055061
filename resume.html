@@ -188,7 +188,7 @@
 <body>
 
 <audio id="bgm" loop>
-  <source src="music/music.mp3" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="layout">
@@ -200,7 +200,7 @@
     </div>
     
     <div class="info-p">學號：114055061</div>
-    <div class="info-p">Email：contact@example.com</div>
+    <div class="info-p">Email：d09021210@gmail.com</div>
     
     <div class="music-credit">
       <i class="fas fa-music"></i> 音樂來源：suno.ai
@@ -271,13 +271,14 @@
 <script>
   const audio = document.getElementById("bgm");
 
-  // 解鎖播放限制：點擊頁面任何地方即播放
+  // 解鎖播放限制：監聽全域點擊
   document.addEventListener('click', function() {
     audio.play().catch(e => console.log("播放被攔截:", e));
   }, { once: true });
 
   function showMessage() {
-    // 再次確保點擊按鈕時會播放
+    // 再次嘗試播放，確保音量已開啟
+    audio.muted = false;
     audio.play();
     document.getElementById("message").textContent = "✨ 履歷質感升級完成！祝你設計靈感源源不絕！";
   }
