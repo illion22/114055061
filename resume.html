@@ -7,29 +7,28 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI','Noto Sans TC',sans-serif;line-height:1.6;color:#444;}
+body{font-family:'Segoe UI','Noto Sans TC',sans-serif;line-height:1.6;color:#444;background:#f5f7fa;}
 .layout{display:flex;min-height:100vh;}
 .left{width:30%;background:linear-gradient(180deg,#003d66,#005a99);color:white;padding:60px 40px;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.left img{width:180px;height:180px;object-fit:cover;border:8px solid white;margin-bottom:25px;background:#fff;transition:.3s;}
-.left img:hover{transform:scale(1.05);}
+.left img{width:180px;height:180px;object-fit:cover;border:8px solid white;margin-bottom:25px;border-radius:50%;transition:.3s;}
+.left img:hover{transform:scale(1.08);}
 .left h2{font-size:2.5rem;letter-spacing:4px;margin-bottom:10px;}
 .subtitle{font-size:1.1rem;font-weight:300;margin-bottom:20px;opacity:.9;}
-.info-p{font-size:.95rem;margin-bottom:8px;opacity:.8;}
+.info-p{font-size:.95rem;margin-bottom:8px;opacity:.85;}
 .music-credit{font-size:.75rem;opacity:.5;margin-top:15px;font-style:italic;}
 .page-num{margin-top:auto;font-size:14px;opacity:.5;align-self:flex-start;}
-.right{width:70%;background:white;padding:60px 80px;}
+.right{width:70%;background:white;padding:60px 80px;box-shadow:-10px 0 30px rgba(0,0,0,0.05);}
 .section{margin-bottom:50px;opacity:0;transform:translateY(20px);animation:fadeIn .8s forwards;}
 .section:nth-child(2){animation-delay:.1s}
 .section:nth-child(3){animation-delay:.2s}
 .section:nth-child(4){animation-delay:.3s}
 .section:nth-child(5){animation-delay:.4s}
-.section:nth-child(6){animation-delay:.5s}
 @keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
 .section-title{font-size:1.2rem;color:#666;letter-spacing:2px;margin-bottom:25px;border-bottom:1px solid #eee;padding-bottom:10px;}
 .timeline{position:relative;padding-left:30px;border-left:2px solid #ddd;}
 .timeline-item{position:relative;margin-bottom:35px;transition:.3s;}
-.timeline-item:hover{transform:translateX(5px);}
-.timeline-item::before{content:'';position:absolute;left:-37px;top:5px;width:12px;height:12px;border-radius:50%;background:#555;}
+.timeline-item:hover{transform:translateX(6px);}
+.timeline-item::before{content:'';position:absolute;left:-37px;top:5px;width:12px;height:12px;border-radius:50%;background:#003d66;}
 .item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
 .item-title{font-size:1.2rem;font-weight:bold;color:#333;}
 .item-org{color:#666;margin-left:15px;}
@@ -38,11 +37,11 @@ body{font-family:'Segoe UI','Noto Sans TC',sans-serif;line-height:1.6;color:#444
 .skills-container{display:flex;flex-wrap:wrap;gap:10px;}
 .skill-tag{border:1px solid #ddd;padding:6px 15px;border-radius:20px;font-size:.9rem;transition:.3s;}
 .skill-tag:hover{background:#003d66;color:white;border-color:#003d66;}
+.progress-bar{margin-top:10px;}
+.progress{height:6px;background:#eee;border-radius:5px;overflow:hidden;margin-bottom:8px;}
+.progress span{display:block;height:100%;background:#003d66;width:70%;}
 button{background:#003d66;color:white;border:none;padding:10px 20px;cursor:pointer;border-radius:4px;transition:.3s;}
 button:hover{background:#005a99;transform:scale(1.05);}
-.project-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:10px;}
-.project-gallery img{width:100%;height:100px;object-fit:cover;border-radius:6px;transition:.3s;}
-.project-gallery img:hover{transform:scale(1.1);}
 @media(max-width:768px){.layout{flex-direction:column}.left,.right{width:100%;padding:40px 20px}}
 </style>
 </head>
@@ -59,7 +58,7 @@ button:hover{background:#005a99;transform:scale(1.05);}
 <div class="subtitle">亞洲大學 室內設計系</div>
 <div class="info-p">學號：114055061</div>
 <div class="info-p">Email：d09021210@gmail.com</div>
-<div class="info-p">興趣：美甲設計 / 空間設計 / 網頁設計</div>
+<div class="info-p">興趣：空間設計 / 網頁設計</div>
 <div class="music-credit"><i class="fas fa-music"></i> 音樂來源：suno.ai</div>
 <div class="page-num">01</div>
 </div>
@@ -70,9 +69,7 @@ button:hover{background:#005a99;transform:scale(1.05);}
 <h3 class="section-title">自我介紹</h3>
 <p class="item-desc">
 我是一名對建築設計與前端技術充滿熱情的學生，喜歡將創意與實用結合。
-不論是在空間規劃還是網頁設計中，我都追求細節與整體的平衡，
-希望打造出具有溫度與美感的作品。
-同時也持續學習新技能，讓自己在設計領域中不斷成長。
+在設計中，我重視整體氛圍與細節表現，並持續學習新技能，提升自己的設計能力。
 </p>
 </div>
 
@@ -87,26 +84,32 @@ button:hover{background:#005a99;transform:scale(1.05);}
 </div>
 <span class="item-date">2025 - 現在</span>
 </div>
-<p class="item-desc">學習空間設計、建築結構與設計理論，並嘗試將數位技術融入設計創作。</p>
+<p class="item-desc">學習空間設計、建築構造與設計表現，培養整合能力。</p>
 </div>
 </div>
 </div>
-
-
 
 <div class="section">
-<h3 class="section-title">個人特質</h3>
-<p class="item-desc">
-具備細心與耐心，善於觀察生活中的細節並轉化為設計靈感。
-喜歡嘗試不同風格與創新表現，並勇於挑戰自我。
-</p>
+<h3 class="section-title">專業技能</h3>
+<div class="skills-container">
+<span class="skill-tag">HTML / CSS</span>
+<span class="skill-tag">JavaScript</span>
+<span class="skill-tag">GitHub</span>
+<span class="skill-tag">AutoCAD</span>
+<span class="skill-tag">視覺設計</span>
+</div>
+<div class="progress-bar">
+<div>HTML / CSS</div>
+<div class="progress"><span style="width:80%"></span></div>
+<div>AutoCAD</div>
+<div class="progress"><span style="width:70%"></span></div>
+</div>
 </div>
 
 <div class="section">
 <h3 class="section-title">未來目標</h3>
 <p class="item-desc">
-希望未來能成為一名專業的室內設計師，並結合數位設計能力，打造具有創新與實用價值的空間作品。
-同時也期待能發展個人品牌，將美甲與設計結合。
+希望未來能成為室內設計師，結合設計與數位能力，打造兼具美感與實用性的空間。
 </p>
 </div>
 
@@ -122,7 +125,7 @@ button:hover{background:#005a99;transform:scale(1.05);}
 <script>
 const audio=document.getElementById("bgm");
 document.addEventListener('click',function(){audio.play().catch(e=>console.log(e));},{once:true});
-function showMessage(){audio.muted=false;audio.play();document.getElementById("message").textContent="✨ 你這份履歷已經可以去面試了啦🔥";}
+function showMessage(){audio.muted=false;audio.play();document.getElementById("message").textContent="✨ 你這份履歷真的很頂🔥";}
 </script>
 
 </body>
