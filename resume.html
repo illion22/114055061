@@ -5,127 +5,275 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>賴儷心 - 個人履歷</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI','Noto Sans TC',sans-serif;line-height:1.6;color:#444;background:#f5f7fa;}
-.layout{display:flex;min-height:100vh;}
-.left{width:30%;background:linear-gradient(180deg,#003d66,#005a99);color:white;padding:60px 40px;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.left img{width:180px;height:180px;object-fit:cover;border:8px solid white;margin-bottom:25px;border-radius:50%;transition:.3s;}
-.left img:hover{transform:scale(1.08);}
-.left h2{font-size:2.5rem;letter-spacing:4px;margin-bottom:10px;}
-.subtitle{font-size:1.1rem;font-weight:300;margin-bottom:20px;opacity:.9;}
-.info-p{font-size:.95rem;margin-bottom:8px;opacity:.85;}
-.music-credit{font-size:.75rem;opacity:.5;margin-top:15px;font-style:italic;}
-.page-num{margin-top:auto;font-size:14px;opacity:.5;align-self:flex-start;}
-.right{width:70%;background:white;padding:60px 80px;box-shadow:-10px 0 30px rgba(0,0,0,0.05);}
-.section{margin-bottom:50px;opacity:0;transform:translateY(20px);animation:fadeIn .8s forwards;}
-.section:nth-child(2){animation-delay:.1s}
-.section:nth-child(3){animation-delay:.2s}
-.section:nth-child(4){animation-delay:.3s}
-.section:nth-child(5){animation-delay:.4s}
-@keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
-.section-title{font-size:1.2rem;color:#666;letter-spacing:2px;margin-bottom:25px;border-bottom:1px solid #eee;padding-bottom:10px;}
-.timeline{position:relative;padding-left:30px;border-left:2px solid #ddd;}
-.timeline-item{position:relative;margin-bottom:35px;transition:.3s;}
-.timeline-item:hover{transform:translateX(6px);}
-.timeline-item::before{content:'';position:absolute;left:-37px;top:5px;width:12px;height:12px;border-radius:50%;background:#003d66;}
-.item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-.item-title{font-size:1.2rem;font-weight:bold;color:#333;}
-.item-org{color:#666;margin-left:15px;}
-.item-date{font-size:.9rem;color:#888;}
-.item-desc{font-size:.95rem;color:#666;}
-.skills-container{display:flex;flex-wrap:wrap;gap:10px;}
-.skill-tag{border:1px solid #ddd;padding:6px 15px;border-radius:20px;font-size:.9rem;transition:.3s;}
-.skill-tag:hover{background:#003d66;color:white;border-color:#003d66;}
-.progress-bar{margin-top:10px;}
-.progress{height:6px;background:#eee;border-radius:5px;overflow:hidden;margin-bottom:8px;}
-.progress span{display:block;height:100%;background:#003d66;width:70%;}
-button{background:#003d66;color:white;border:none;padding:10px 20px;cursor:pointer;border-radius:4px;transition:.3s;}
-button:hover{background:#005a99;transform:scale(1.05);}
-@media(max-width:768px){.layout{flex-direction:column}.left,.right{width:100%;padding:40px 20px}}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+  line-height: 1.6;
+  color: #444;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 左邊 */
+.left {
+  width: 30%;
+  background: #003d66;
+  color: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.left img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 8px solid white;
+  margin-bottom: 25px;
+  background: #fff;
+}
+
+.left h2 {
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.info-p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.music-credit {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-top: 15px;
+}
+
+.page-num {
+  margin-top: auto;
+  opacity: 0.5;
+}
+
+/* 右邊 */
+.right {
+  width: 70%;
+  padding: 60px 80px;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  color: #666;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+.timeline {
+  border-left: 2px solid #ddd;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -37px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: #555;
+  border-radius: 50%;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-title {
+  font-weight: bold;
+}
+
+.item-date {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.item-desc {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  border: 1px solid #ddd;
+  padding: 6px 15px;
+  border-radius: 4px;
+}
+
+/* 按鈕 */
+button {
+  background: #003d66;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005a99;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .left, .right { width: 100%; }
+}
 </style>
 </head>
+
 <body>
 
 <audio id="bgm" loop>
-<source src="music.mp3" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="layout">
-<div class="left">
-<img src="images/photo.jpg" alt="個人照片">
-<h2>賴 儷 心</h2>
-<div class="subtitle">亞洲大學 室內設計系</div>
-<div class="info-p">學號：114055061</div>
-<div class="info-p">Email：d09021210@gmail.com</div>
-<div class="info-p">興趣：空間設計 / 網頁設計</div>
-<div class="music-credit"><i class="fas fa-music"></i> 音樂來源：suno.ai</div>
-<div class="page-num">01</div>
-</div>
 
-<div class="right">
+  <!-- 左 -->
+  <div class="left">
+    <img src="images/photo.jpg">
+    <h2>賴 儷 心</h2>
+    <div class="subtitle">亞洲大學 室內設計系</div>
 
-<div class="section">
-<h3 class="section-title">自我介紹</h3>
-<p class="item-desc">
-我是一名對建築設計與前端技術充滿熱情的學生，喜歡將創意與實用結合。
-在設計中，我重視整體氛圍與細節表現，並持續學習新技能，提升自己的設計能力。
-</p>
-</div>
+    <div class="info-p">學號：114055061</div>
+    <div class="info-p">Email：d09021210@gmail.com</div>
 
-<div class="section">
-<h3 class="section-title">相關學歷</h3>
-<div class="timeline">
-<div class="timeline-item">
-<div class="item-header">
-<div>
-<span class="item-title">室內設計學士</span>
-<span class="item-org">亞洲大學</span>
-</div>
-<span class="item-date">2025 - 現在</span>
-</div>
-<p class="item-desc">學習空間設計、建築構造與設計表現，培養整合能力。</p>
-</div>
-</div>
-</div>
+    <div class="music-credit">
+      <i class="fas fa-music"></i> 音樂來源：suno.ai
+    </div>
 
-<div class="section">
-<h3 class="section-title">專業技能</h3>
-<div class="skills-container">
-<span class="skill-tag">HTML / CSS</span>
-<span class="skill-tag">JavaScript</span>
-<span class="skill-tag">GitHub</span>
-<span class="skill-tag">AutoCAD</span>
-<span class="skill-tag">視覺設計</span>
-</div>
-<div class="progress-bar">
-<div>HTML / CSS</div>
-<div class="progress"><span style="width:80%"></span></div>
-<div>AutoCAD</div>
-<div class="progress"><span style="width:70%"></span></div>
-</div>
-</div>
+    <div class="page-num">01</div>
+  </div>
 
-<div class="section">
-<h3 class="section-title">未來目標</h3>
-<p class="item-desc">
-希望未來能成為室內設計師，結合設計與數位能力，打造兼具美感與實用性的空間。
-</p>
-</div>
+  <!-- 右 -->
+  <div class="right">
 
-<div class="section">
-<h3 class="section-title">互動</h3>
-<button onclick="showMessage()">點我驚喜</button>
-<p id="message" style="margin-top:15px;font-weight:bold;color:#003d66;"></p>
-</div>
+    <div class="section">
+      <h3 class="section-title">自我介紹</h3>
+      <p class="item-desc">
+        我是一名對建築設計與前端技術充滿熱情的學生，
+        喜歡將創意與實用結合。
+      </p>
+    </div>
 
-</div>
+    <div class="section">
+      <h3 class="section-title">學歷</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="item-header">
+            <div>室內設計學士</div>
+            <div class="item-date">2025 - 現在</div>
+          </div>
+          <p class="item-desc">亞洲大學</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">作品</h3>
+      <p class="item-desc">
+        美甲作品 / 前端專案，包含個人品牌設計與互動網頁。
+      </p>
+    </div>
+
+    <!-- ✨新增 -->
+    <div class="section">
+      <h3 class="section-title">經歷</h3>
+      <p class="item-desc">
+        參與吉他社，培養表演與團隊合作能力。<br>
+        持續自學美甲與設計，累積創作經驗。
+      </p>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">設計理念</h3>
+      <p class="item-desc">
+        設計不只是外觀，而是傳遞情感與體驗的媒介。
+        我希望作品能讓使用者感到舒適與故事性。
+      </p>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">未來目標</h3>
+      <p class="item-desc">
+        成為室內設計師，結合數位設計，並發展個人品牌與工作室。
+      </p>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">技能</h3>
+      <div class="skills-container">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JS</span>
+        <span class="skill-tag">AutoCAD</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">互動</h3>
+      <button onclick="showMessage()">點我驚喜</button>
+      <p id="message"></p>
+    </div>
+
+  </div>
 </div>
 
 <script>
-const audio=document.getElementById("bgm");
-document.addEventListener('click',function(){audio.play().catch(e=>console.log(e));},{once:true});
-function showMessage(){audio.muted=false;audio.play();document.getElementById("message").textContent="✨ 你這份履歷真的很頂🔥";}
+const audio = document.getElementById("bgm");
+
+document.addEventListener('click', function () {
+  audio.play();
+}, { once: true });
+
+function showMessage() {
+  audio.play();
+  document.getElementById("message").textContent =
+  "✨ 履歷完成，繼續加油！";
+}
 </script>
 
 </body>
